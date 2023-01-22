@@ -3,10 +3,15 @@ package com.test.drone.domain.drone;
 import com.test.drone.core.validation.Common;
 import com.test.drone.core.validation.OnUpdate;
 import com.test.drone.domain.medication.Medication;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Set;
@@ -38,13 +43,13 @@ public class Drone implements Serializable {
     @Column(name = "weight_limit")
     @NotNull(message = "validation.error.drone.notnull.weight.limit", groups = Common.class)
     @Max(value = 500, message = "validation.error.drone.max.weight.limit")
-    @Max(value = 0, message = "validation.error.drone.min.weight.limit")
+    @Min(value = 0, message = "validation.error.drone.min.weight.limit")
     private Short weightLimit;
 
     @Column(name = "battery_capacity")
     @NotNull(message = "validation.error.drone.notnull.battery.capacity", groups = Common.class)
     @Max(value = 100, message = "validation.error.drone.max.battery.capacity")
-    @Max(value = 0, message = "validation.error.drone.min.battery.capacity")
+    @Min(value = 0, message = "validation.error.drone.min.battery.capacity")
     private Short batteryCapacity;
 
     @Column(name = "state")

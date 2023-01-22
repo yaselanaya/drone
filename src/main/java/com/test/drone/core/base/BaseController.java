@@ -4,11 +4,9 @@ import com.test.drone.core.exception.DroneException;
 import com.test.drone.core.exception.DroneValidationException;
 import com.test.drone.core.filter.CustomParamPageable;
 import com.test.drone.core.filter.SearchCriteria;
-import com.test.drone.core.util.BeanUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.web.PagedResourcesAssembler;
-import org.springframework.data.web.config.HateoasAwareSpringDataWebConfiguration;
 import org.springframework.hateoas.PagedModel;
 import org.springframework.hateoas.RepresentationModel;
 import org.springframework.http.HttpStatus;
@@ -27,15 +25,13 @@ public abstract class BaseController<Entity, Dto extends IDto, Id, Resource exte
 
     protected final IMessages messages;
 
-    private PagedResourcesAssembler pagedResourcesAssembler;
+    protected final PagedResourcesAssembler<Entity> pagedResourcesAssembler;
 
-    protected BaseController(Service service, Assembler assembler, IMessages messages) {
+    protected BaseController(Service service, Assembler assembler, PagedResourcesAssembler<Entity> pagedResourcesAssembler, IMessages messages) {
         this.service = service;
         this.assembler = assembler;
         this.messages = messages;
-
-        HateoasAwareSpringDataWebConfiguration bean = BeanUtil.getBean(HateoasAwareSpringDataWebConfiguration.class);
-        this.pagedResourcesAssembler = bean.pagedResourcesAssembler();
+        this.pagedResourcesAssembler = pagedResourcesAssembler;
     }
 
 
