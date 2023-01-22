@@ -1,2 +1,2 @@
 # drone
-API Rest for managenet drones
+API Rest for management drones
