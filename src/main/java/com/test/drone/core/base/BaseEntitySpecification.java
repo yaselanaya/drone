@@ -29,11 +29,6 @@ public abstract class BaseEntitySpecification<Entity> implements IEntitySpecific
         this(filters, Strings.EMPTY);
     }
 
-    public BaseEntitySpecification(List<SearchCriteria> filters, List<SearchCriteria> searchFilters) {
-        this(filters, Strings.EMPTY);
-        this.searchFilters = searchFilters;
-    }
-
     @Override
     public Specification<Entity> toSpecification() {
 

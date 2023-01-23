@@ -56,6 +56,6 @@ public class Drone implements Serializable {
     @NotNull(message = "validation.error.drone.notnull.state", groups = Common.class)
     private State state;
 
-    @OneToMany(mappedBy = "drone", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "drone", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<Medication> medications;
 }

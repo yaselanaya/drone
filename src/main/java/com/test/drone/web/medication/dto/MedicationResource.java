@@ -25,4 +25,6 @@ public class MedicationResource extends RepresentationModel<MedicationResource> 
     private String code;
 
     private String image;
+
+    private Integer droneId;
 }

@@ -7,7 +7,7 @@ public final class DroneConstants {
     }
 
     /* Mapping */
-    public static final String BASE_PATH = "/drones";
+    public static final String BASE_PATH = "/drone";
 
     public static final String MAPPING_GET_BY_ID = "/{id}";
 

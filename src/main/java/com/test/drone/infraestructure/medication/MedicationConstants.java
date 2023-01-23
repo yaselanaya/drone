@@ -7,7 +7,7 @@ public final class MedicationConstants {
     }
 
     /* Mapping */
-    public static final String BASE_PATH = "/medications";
+    public static final String BASE_PATH = "/medication";
 
     public static final String MAPPING_GET_BY_ID = "/{id}";
 

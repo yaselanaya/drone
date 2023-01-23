@@ -57,6 +57,6 @@ public class Medication implements Serializable {
     private String image;
 
     @JoinColumn(name = "drone_id", referencedColumnName = "id")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Drone drone;
 }

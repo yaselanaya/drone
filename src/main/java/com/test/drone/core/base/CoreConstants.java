@@ -38,4 +38,6 @@ public final class CoreConstants {
     static final String SCAPE_DOT = "\\.";
 
     public static final String LANGUAGE_PROPERTY = "lang";
+
+    public static final String[] HIBERNATE_DTO_PACKAGES = new String[] {"com.test.drone.domain"};
 }
