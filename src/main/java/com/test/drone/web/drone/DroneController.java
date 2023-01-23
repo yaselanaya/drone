@@ -15,7 +15,14 @@ import com.test.drone.infraestructure.drone.DroneFactory;
 import com.test.drone.web.drone.dto.DroneDTO;
 import com.test.drone.web.drone.dto.DroneResource;
 import com.test.drone.web.drone.dto.DroneResourceAssembler;
-import io.swagger.annotations.*;
+import com.test.drone.web.medication.dto.LoadDroneDTO;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.Authorization;
+import io.swagger.annotations.SwaggerDefinition;
+import io.swagger.annotations.Tag;
 import org.springframework.data.web.PagedResourcesAssembler;
 import org.springframework.hateoas.PagedModel;
 import org.springframework.http.HttpStatus;
@@ -25,6 +32,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.Objects;
+import java.util.Set;
 
 @RestController
 @RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE, path = DroneConstants.BASE_PATH)
@@ -88,5 +97,31 @@ public class DroneController extends BaseController<Drone, DroneDTO, Integer, Dr
     @Override
     public ResponseEntity<HttpStatus> delete(@PathVariable Integer id) throws DroneException {
         return super.delete(id);
+    }
+
+    @ApiOperation(value = "Load a drone with medications.", authorizations = { @Authorization(value = "apiKey") })
+    @PatchMapping(path = DroneConstants.MAPPING_LOAD_DRONE)
+    public ResponseEntity<HttpStatus> loadMedications(@RequestBody LoadDroneDTO loadDroneDTO) throws DroneException {
+
+        Integer droneId = loadDroneDTO.getId();
+        if (Objects.isNull(droneId))
+        {
+            throw new DroneException(
+                    HttpStatus.BAD_REQUEST,
+                    messages.getMessage("validation.error.drone.notnull.id")
+            );
+        }
+
+        Set<Integer> medications = loadDroneDTO.getMedications();
+        if (Objects.isNull(medications) || medications.isEmpty()) {
+            throw new DroneException(
+                    HttpStatus.BAD_REQUEST,
+                    messages.getMessage("validation.error.drone.load.medication.null.empty")
+            );
+        }
+
+        service.loadMedications(droneId, medications);
+
+        return ResponseEntity.ok(HttpStatus.OK);
     }
 }

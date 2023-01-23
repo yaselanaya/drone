@@ -11,4 +11,5 @@ public final class DroneConstants {
 
     public static final String MAPPING_GET_BY_ID = "/{id}";
 
+    public static final String MAPPING_LOAD_DRONE = "/load";
 }
