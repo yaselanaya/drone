@@ -3,6 +3,7 @@ package com.test.drone.infraestructure.drone;
 import com.test.drone.core.base.ServiceBaseImpl;
 import com.test.drone.core.exception.DroneException;
 import com.test.drone.domain.drone.Drone;
+import com.test.drone.domain.drone.DroneBatteryScheduleDTO;
 import com.test.drone.domain.drone.IDroneRepository;
 import com.test.drone.domain.drone.IDroneService;
 import com.test.drone.domain.drone.State;
@@ -15,6 +16,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collection;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -37,11 +39,18 @@ public class DroneServiceImpl extends ServiceBaseImpl<Drone, Integer, DroneDTO, 
         medicationService.setDroneForMedications(drone, medications);
     }
 
+    @Override
+    public Set<DroneBatteryScheduleDTO> findAllDronesBattery() {
+        return repository.findAllDronesBattery();
+    }
+
+    @Override
+    public Collection<Medication> getMedicationsByDrone(Integer droneId) throws DroneException {
+        return getDroneById(droneId).getMedications();
+    }
+
     private Drone validateDroneToLoad(Integer droneId, Set<Integer> medications) throws DroneException {
-        Drone drone = findById(droneId).orElseThrow(() -> new DroneException(
-                HttpStatus.NOT_FOUND,
-                messages.getMessage("validation.error.drone.doesnt.exit")
-        ));
+        Drone drone = getDroneById(droneId);
 
         if (drone.getBatteryCapacity() < 25) {
             throw new DroneException(
@@ -52,7 +61,7 @@ public class DroneServiceImpl extends ServiceBaseImpl<Drone, Integer, DroneDTO, 
 
         Page<Medication> medicationsToLoad = medicationService.getMedicationsToLoad(medications);
 
-        if(medications.size() > medicationsToLoad.getSize()) {
+        if (medications.size() > medicationsToLoad.getSize()) {
             throw new DroneException(
                     HttpStatus.NOT_FOUND,
                     messages.getMessage("validation.error.drone.load.medication.dont.exit")
@@ -73,13 +82,19 @@ public class DroneServiceImpl extends ServiceBaseImpl<Drone, Integer, DroneDTO, 
         return drone;
     }
 
-    private boolean isExceedWeightLimit(Drone drone)
-    {
+    private boolean isExceedWeightLimit(Drone drone) {
         Integer weight = drone.getMedications()
                 .stream()
                 .map(med -> Integer.valueOf(med.getWeight()))
                 .reduce(0, Integer::sum);
 
         return Integer.valueOf(drone.getWeightLimit()) < weight;
+    }
+
+    private Drone getDroneById(Integer droneId) throws DroneException {
+        return findById(droneId).orElseThrow(() -> new DroneException(
+                HttpStatus.NOT_FOUND,
+                messages.getMessage("validation.error.drone.doesnt.exit")
+        ));
     }
 }

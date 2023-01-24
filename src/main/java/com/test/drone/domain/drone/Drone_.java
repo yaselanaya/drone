@@ -3,7 +3,7 @@ package com.test.drone.domain.drone;
 import com.test.drone.domain.medication.Medication;
 
 import javax.annotation.Generated;
-import javax.persistence.metamodel.SetAttribute;
+import javax.persistence.metamodel.CollectionAttribute;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
@@ -23,7 +23,7 @@ public class Drone_ {
 
     public static volatile SingularAttribute<Drone, State> state;
 
-    public static volatile SetAttribute<Drone, Medication> medications;
+    public static volatile CollectionAttribute<Drone, Medication> medications;
 
     public static final String ID = "id";
 

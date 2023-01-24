@@ -13,6 +13,10 @@ public class DroneSpecification extends BaseEntitySpecification<Drone> {
         super(filters, search);
     }
 
+    public DroneSpecification(List<SearchCriteria> filters) {
+        super(filters);
+    }
+
     @Override
     protected void populateSearchCriteria() {
 

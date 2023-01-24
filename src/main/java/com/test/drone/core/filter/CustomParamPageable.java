@@ -81,7 +81,6 @@ public class CustomParamPageable implements Serializable {
     }
 
     /**
-     *
      * @return {@code Sort}
      */
     private Sort getSorts() {

@@ -14,6 +14,7 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Set;
 
 @AllArgsConstructor
@@ -57,5 +58,6 @@ public class Drone implements Serializable {
     private State state;
 
     @OneToMany(mappedBy = "drone", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private Set<Medication> medications;
+    @OrderColumn(name = "id")
+    private Collection<Medication> medications;
 }
