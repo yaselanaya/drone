@@ -2,9 +2,9 @@ package com.test.drone.base;
 
 public interface ICrudTest {
 
-    void findById();
+    void findById() throws Exception;
 
-    void findAllPaging();
+    void findAllPaging() throws Exception;
 
     void save() throws Exception;
 
