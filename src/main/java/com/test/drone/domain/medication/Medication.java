@@ -53,7 +53,6 @@ public class Medication implements Serializable {
     private String code;
 
     @Column(name = "image")
-    @NotNull(message = "validation.error.medication.notnull.image", groups = Common.class)
     private String image;
 
     @JoinColumn(name = "drone_id", referencedColumnName = "id")

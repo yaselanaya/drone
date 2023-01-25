@@ -29,7 +29,4 @@ public class MedicationDTO implements IDto {
 
     @ApiModelProperty
     private String image;
-
-    @ApiModelProperty
-    private Integer droneId;
 }
