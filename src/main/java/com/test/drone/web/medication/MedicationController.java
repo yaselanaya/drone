@@ -47,7 +47,7 @@ import java.util.List;
 public class MedicationController extends
         BaseController<Medication, MedicationDTO, Integer, MedicationResource, MedicationFactory, MedicationController, IMedicationService, MedicationResourceAssembler> {
 
-    protected MedicationController(IMedicationService service, MedicationResourceAssembler assembler, PagedResourcesAssembler<Medication> pagedResourcesAssembler, IMessages messages) {
+    public MedicationController(IMedicationService service, MedicationResourceAssembler assembler, PagedResourcesAssembler<Medication> pagedResourcesAssembler, IMessages messages) {
         super(service, assembler, pagedResourcesAssembler, messages);
     }
 

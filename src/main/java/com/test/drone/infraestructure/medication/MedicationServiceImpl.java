@@ -2,7 +2,7 @@ package com.test.drone.infraestructure.medication;
 
 import com.test.drone.core.base.ServiceBaseImpl;
 import com.test.drone.core.exception.DroneException;
-import com.test.drone.core.file.ImageUploader;
+import com.test.drone.core.file.IImageUploader;
 import com.test.drone.core.filter.SearchCriteria;
 import com.test.drone.core.filter.SearchOperation;
 import com.test.drone.domain.drone.Drone;
@@ -26,10 +26,10 @@ import java.util.Set;
 public class MedicationServiceImpl extends ServiceBaseImpl<Medication, Integer, MedicationDTO, MedicationResource, MedicationFactory, IMedicationRepository>
         implements IMedicationService {
 
-    private final ImageUploader uploader;
+    private final IImageUploader uploader;
 
-    protected MedicationServiceImpl(IMedicationRepository repository, MedicationFactory factory,
-                                    MedicationValidationService validator, ImageUploader uploader) {
+    public MedicationServiceImpl(IMedicationRepository repository, MedicationFactory factory,
+                                    MedicationValidationService validator, IImageUploader uploader) {
         super(repository, factory, validator);
         this.uploader = uploader;
     }
