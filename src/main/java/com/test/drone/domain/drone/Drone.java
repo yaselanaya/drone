@@ -9,13 +9,21 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderColumn;
+import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Collection;
-import java.util.Set;
 
 @AllArgsConstructor
 @Entity
@@ -43,14 +51,14 @@ public class Drone implements Serializable {
 
     @Column(name = "weight_limit")
     @NotNull(message = "validation.error.drone.notnull.weight.limit", groups = Common.class)
-    @Max(value = 500, message = "validation.error.drone.max.weight.limit")
-    @Min(value = 0, message = "validation.error.drone.min.weight.limit")
+    @Max(value = 500, message = "validation.error.drone.max.weight.limit", groups = Common.class)
+    @Min(value = 0, message = "validation.error.drone.min.weight.limit", groups = Common.class)
     private Short weightLimit;
 
     @Column(name = "battery_capacity")
     @NotNull(message = "validation.error.drone.notnull.battery.capacity", groups = Common.class)
-    @Max(value = 100, message = "validation.error.drone.max.battery.capacity")
-    @Min(value = 0, message = "validation.error.drone.min.battery.capacity")
+    @Max(value = 100, message = "validation.error.drone.max.battery.capacity", groups = Common.class)
+    @Min(value = 0, message = "validation.error.drone.min.battery.capacity", groups = Common.class)
     private Short batteryCapacity;
 
     @Column(name = "state")
