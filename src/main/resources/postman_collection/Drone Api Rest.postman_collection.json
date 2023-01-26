@@ -1,0 +1,824 @@
+{
+	"info": {
+		"_postman_id": "e78255e0-bfe8-4d33-b71e-b9e1b2d4e6a9",
+		"name": "Drone Api Rest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "find by id",
+			"item": [
+				{
+					"name": "drone",
+					"item": [
+						{
+							"name": "FindByID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/drone/1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"drone",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "medication",
+					"item": [
+						{
+							"name": "FindByID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/medication/1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"medication",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "find all",
+			"item": [
+				{
+					"name": "drone",
+					"item": [
+						{
+							"name": "Find All",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/drone",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"drone"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find All Filter by Serial Number",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/drone?data=%7B%22search%22%3A%20%22%22%2C%22filters%22%3A%5B%7B%22field%22%3A%22serialNumber%22%2C%20%22operator%22%3A%22EQUALITY%22%2C%20%22value%22%3A%22Drone%201%22%7D%5D%2C%22pageable%22%3A%7B%22page%22%3A0%2C%22size%22%3A200%2C%22orders%22%3A%5B%5D%7D%7D",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"drone"
+									],
+									"query": [
+										{
+											"key": "data",
+											"value": "%7B%22search%22%3A%20%22%22%2C%22filters%22%3A%5B%7B%22field%22%3A%22serialNumber%22%2C%20%22operator%22%3A%22EQUALITY%22%2C%20%22value%22%3A%22Drone%201%22%7D%5D%2C%22pageable%22%3A%7B%22page%22%3A0%2C%22size%22%3A200%2C%22orders%22%3A%5B%5D%7D%7D"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find All Order By Weight DESC",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/medication?data=%7B%22search%22%3A%20%22%22%2C%22filters%22%3A%5B%5D%2C%22pageable%22%3A%7B%22page%22%3A0%2C%22size%22%3A10%2C%22orders%22%3A%5B%7B%22direction%22%3A%22DESC%22%2C%22property%22%3A%22weight%22%7D%5D%7D%7D",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"medication"
+									],
+									"query": [
+										{
+											"key": "data",
+											"value": "%7B%22search%22%3A%20%22%22%2C%22filters%22%3A%5B%5D%2C%22pageable%22%3A%7B%22page%22%3A0%2C%22size%22%3A10%2C%22orders%22%3A%5B%7B%22direction%22%3A%22DESC%22%2C%22property%22%3A%22weight%22%7D%5D%7D%7D"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find All Search By Name Contains 1",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/medication?data=%7B%22search%22%3A%20%221%22%2C%22filters%22%3A%5B%5D%2C%22pageable%22%3A%7B%22page%22%3A0%2C%22size%22%3A10%2C%22orders%22%3A%5B%5D%7D%7D",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"medication"
+									],
+									"query": [
+										{
+											"key": "data",
+											"value": "%7B%22search%22%3A%20%221%22%2C%22filters%22%3A%5B%5D%2C%22pageable%22%3A%7B%22page%22%3A0%2C%22size%22%3A10%2C%22orders%22%3A%5B%5D%7D%7D"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "medication",
+					"item": [
+						{
+							"name": "Find All",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/medication",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"medication"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find All Filter by Code",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/medication?data=%7B%22search%22%3A%20%22%22%2C%22filters%22%3A%5B%7B%22field%22%3A%22code%22%2C%20%22operator%22%3A%22EQUALITY%22%2C%20%22value%22%3A%22CODE_9%22%7D%5D%2C%22pageable%22%3A%7B%22page%22%3A0%2C%22size%22%3A200%2C%22orders%22%3A%5B%5D%7D%7D",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"medication"
+									],
+									"query": [
+										{
+											"key": "data",
+											"value": "%7B%22search%22%3A%20%22%22%2C%22filters%22%3A%5B%7B%22field%22%3A%22code%22%2C%20%22operator%22%3A%22EQUALITY%22%2C%20%22value%22%3A%22CODE_9%22%7D%5D%2C%22pageable%22%3A%7B%22page%22%3A0%2C%22size%22%3A200%2C%22orders%22%3A%5B%5D%7D%7D"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find All Order By Weight Limit DESC Copy",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/drone?data=%7B%22search%22%3A%20%22%22%2C%22filters%22%3A%5B%5D%2C%22pageable%22%3A%7B%22page%22%3A0%2C%22size%22%3A10%2C%22orders%22%3A%5B%7B%22direction%22%3A%22DESC%22%2C%22property%22%3A%22weightLimit%22%7D%5D%7D%7D",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"drone"
+									],
+									"query": [
+										{
+											"key": "data",
+											"value": "%7B%22search%22%3A%20%22%22%2C%22filters%22%3A%5B%5D%2C%22pageable%22%3A%7B%22page%22%3A0%2C%22size%22%3A10%2C%22orders%22%3A%5B%7B%22direction%22%3A%22DESC%22%2C%22property%22%3A%22weightLimit%22%7D%5D%7D%7D"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find All Search By Name Contains 1",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/drone?data=%7B%22search%22%3A%20%221%22%2C%22filters%22%3A%5B%5D%2C%22pageable%22%3A%7B%22page%22%3A0%2C%22size%22%3A10%2C%22orders%22%3A%5B%5D%7D%7D",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"drone"
+									],
+									"query": [
+										{
+											"key": "data",
+											"value": "%7B%22search%22%3A%20%221%22%2C%22filters%22%3A%5B%5D%2C%22pageable%22%3A%7B%22page%22%3A0%2C%22size%22%3A10%2C%22orders%22%3A%5B%5D%7D%7D"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "save",
+			"item": [
+				{
+					"name": "drone",
+					"item": [
+						{
+							"name": "Save",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"batteryCapacity\": 50,\n  \"model\": \"LIGHT_WEIGHT\",\n  \"serialNumber\": \"Drone 11\",\n  \"state\": \"IDLE\",\n  \"weightLimit\": 100\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/drone",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"drone"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Save Validate Weight Limit",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"batteryCapacity\": 50,\n  \"model\": \"LIGHT_WEIGHT\",\n  \"serialNumber\": \"Drone 11\",\n  \"state\": \"IDLE\",\n  \"weightLimit\": 600\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/drone",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"drone"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "medication",
+					"item": [
+						{
+							"name": "Save Med",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "Content-Type",
+										"value": "multipart/form-data",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "data",
+											"value": "{\"code\": \"CODE_11\", \"image\": \"slack.jpeg\", \"name\": \"MED_11\", \"weight\": 70}",
+											"contentType": "application/json",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/home/yasel/Downloads/slack.jpeg"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/medication",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"medication"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Save Med Validate Name",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "Content-Type",
+										"value": "multipart/form-data",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "data",
+											"value": "{\"code\": \"*CODE_11*\", \"image\": \"slack.jpeg\", \"name\": \"MED_11\", \"weight\": 70}",
+											"contentType": "application/json",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/home/yasel/Downloads/slack.jpeg"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/medication",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"medication"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "update",
+			"item": [
+				{
+					"name": "drone",
+					"item": [
+						{
+							"name": "Update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 1,\n  \"batteryCapacity\": 50,\n  \"model\": \"LIGHT_WEIGHT\",\n  \"serialNumber\": \"Drone 01\",\n  \"state\": \"IDLE\",\n  \"weightLimit\": 100\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/drone",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"drone"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Validate Battery Capacity",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 1,\n  \"batteryCapacity\": 200,\n  \"model\": \"LIGHT_WEIGHT\",\n  \"serialNumber\": \"Drone 01\",\n  \"state\": \"IDLE\",\n  \"weightLimit\": 100\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/drone",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"drone"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "medication",
+					"item": [
+						{
+							"name": "Update Med",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "data",
+											"value": "{\"id\": 11, \"name\": \"MED_11\",\"weight\": 75, \"code\": \"CODE_11\", \"image\": \"uploads/39389abf-df12-46b9-9608-864398c4f059-slack.jpeg\", \"droneId\": null}",
+											"contentType": "application/json",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/home/yasel/Downloads/oh no.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}/medication",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"medication"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Med Validate Code",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "data",
+											"value": "{\"id\": 11, \"name\": \"MED_11\",\"weight\": 75, \"code\": \"#CODE#11\", \"image\": \"uploads/39389abf-df12-46b9-9608-864398c4f059-slack.jpeg\", \"droneId\": null}",
+											"contentType": "application/json",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/home/yasel/Downloads/oh no.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}/medication",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"medication"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "delete",
+			"item": [
+				{
+					"name": "drone",
+					"item": [
+						{
+							"name": "Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/drone/15",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"drone",
+										"15"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Does Not Exist",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/drone/1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"drone",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "medication",
+					"item": [
+						{
+							"name": "Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/medication/15",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"medication",
+										"15"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Does Not Exist",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/medication/1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"medication",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "other",
+			"item": [
+				{
+					"name": "Check Battery Capacity",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/drone/15/battery-capacity",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"drone",
+								"15",
+								"battery-capacity"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check Battery Capacity Does Not Exist",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/drone/1/battery-capacity",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"drone",
+								"1",
+								"battery-capacity"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Load Medications",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 1,\n  \"medications\": [\n    1,2,3\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/drone/load",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"drone",
+								"load"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Load Medications Exceed Weight",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 2,\n  \"medications\": [\n   4,5,6,7\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/drone/load",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"drone",
+								"load"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Load Medications Low Battery",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 8,\n  \"medications\": [\n    9\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/drone/load",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"drone",
+								"load"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check Loading Medications",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/drone/1/medications",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"drone",
+								"1",
+								"medications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check Loading Medications Drone Does Not Exist",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/drone/15/medications",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"drone",
+								"15",
+								"medications"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://localhost:8080"
+		}
+	]
+}
